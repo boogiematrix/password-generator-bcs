@@ -50,20 +50,40 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+
+
 function generatePassword() {
+  //This decides the length of the password
+  let passLength
   do {
-  var passLength = window.prompt('Choose a length for your password between 8 and 128');
+  passLength = window.prompt('Choose a length for your password between 8 and 128');
   } while (passLength < 8 || passLength > 128) 
-  
+  //This decides what types of characters the password will include
 
-  do {
-    window.confirm
-  } while (passLength < 8 || passLength > 128 || finalPasswordArray == null) 
-  
-}
+  let finalPasswordString = '';
+
+do {
+    if (window.confirm('Do you want to include lowercase characters in your password?')) {
+      finalPasswordString += characterTypes.lowerCase;
+    }
+    if (window.confirm('Do you want to include uppercase characters in your password?')) {
+      finalPasswordString += characterTypes.upperCase;
+    }
+    if (window.confirm('Do you want to include numbers in your password?')) {
+      finalPasswordString += characterTypes.number;
+    }
+    if (window.confirm('Do you want to include special characters in your password?')) {
+      finalPasswordString += characterTypes.special;
+    }
+  } while (finalPasswordString == '') 
+ 
 
 
-// Adding the actual random character to the password string
-for (i = 0; i <= passLength ; i ++) {
-  password += finalPasswordArray[Math.floor(Math.random()*finalPasswordArray.length)]
+  //This turns the string you just got back into an array
+  let finalPasswordArray = finalPasswordString.split('')
+
+  // Adding the actual random character to the password string
+  for (i = 0; i <= passLength ; i ++) {
+    password += finalPasswordArray[Math.floor(Math.random()*finalPasswordArray.length)]
+  }
 }
