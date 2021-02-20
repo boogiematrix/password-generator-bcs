@@ -21,8 +21,8 @@ const characterTypes = {
   upperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
   'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
   number: [0,1, 2, 3, 4, 5, 6, 7, 8, 9],
-  special: [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.',
-   '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'],
+  special: ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.',
+   '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '{', '}', '~'],
 }
 /* prompt window- input must be a number. must be between 8 and 128 'How many characters in your password?'
 if not a number 'You must enter a number between 8 and 128*/
@@ -54,10 +54,12 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   //This decides the length of the password
+  
   let passLength
   do {
   passLength = window.prompt('Choose a length for your password between 8 and 128');
   } while (passLength < 8 || passLength > 128) 
+  
   //This decides what types of characters the password will include
 
   let finalPasswordString = '';
@@ -77,13 +79,15 @@ do {
     }
   } while (finalPasswordString == '') 
  
-
+console.log(finalPasswordString)
 
   //This turns the string you just got back into an array
   let finalPasswordArray = finalPasswordString.split('')
 
   // Adding the actual random character to the password string
-  for (i = 0; i <= passLength ; i ++) {
-    password += finalPasswordArray[Math.floor(Math.random()*finalPasswordArray.length)]
+  let passwordFinal
+  for (i = 0; i <= passLength -1 ; i ++) {
+    passwordFinal += finalPasswordArray[Math.floor(Math.random()*finalPasswordArray.length)]
   }
+  return passwordFinal;
 }
