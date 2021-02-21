@@ -55,7 +55,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   //This decides the length of the password
   
-  let passLength
+  let passLength = 0;
   do {
   passLength = window.prompt('Choose a length for your password between 8 and 128');
   } while (passLength < 8 || passLength > 128) 
@@ -85,7 +85,7 @@ do {
   let finalPasswordArray = finalPasswordString.split('')
 
   // Adding the actual random character to the password string
-  let passwordFinal
+  let passwordFinal = ''
   for (i = 0; i <= passLength -1 ; i ++) {
     passwordFinal += finalPasswordArray[Math.floor(Math.random()*finalPasswordArray.length)]
   }
