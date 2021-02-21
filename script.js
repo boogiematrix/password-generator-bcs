@@ -62,24 +62,24 @@ function generatePassword() {
   
   //This decides what types of characters the password will include
 
-  let finalPasswordString = '';
+  let initialPasswordString = '';
 
 do {
     if (window.confirm('Do you want to include lowercase characters in your password?')) {
-      finalPasswordString += characterTypes.lowerCase;
+      initialPasswordString += characterTypes.lowerCase;
     }
     if (window.confirm('Do you want to include uppercase characters in your password?')) {
-      finalPasswordString += characterTypes.upperCase;
+      initialPasswordString += characterTypes.upperCase;
     }
     if (window.confirm('Do you want to include numbers in your password?')) {
-      finalPasswordString += characterTypes.number;
+      initialPasswordString += characterTypes.number;
     }
     if (window.confirm('Do you want to include special characters in your password?')) {
-      finalPasswordString += characterTypes.special;
+      initialPasswordString += characterTypes.special;
     }
-  } while (finalPasswordString == '') 
+  } while (initialPasswordString == '') 
  
-console.log(finalPasswordString)
+    finalPasswordString = initialPasswordString.replaceAll(',', '');
 
   //This turns the string you just got back into an array
   let finalPasswordArray = finalPasswordString.split('')
