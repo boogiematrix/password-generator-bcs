@@ -38,7 +38,7 @@ function generatePassword() {
   // This verifies passLength as a number that exists
   if (typeof passLength !== 'number'|| isNaN(passLength)) {
     window.alert('Try again');
-    return false
+    return 'whoopsie'
   }
   
   // This decides what types of characters the password will include
