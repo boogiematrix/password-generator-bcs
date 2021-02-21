@@ -56,9 +56,21 @@ function generatePassword() {
   //This decides the length of the password
   
   let passLength = 0;
+  /*let passLength = window.prompt('Choose a length for your password between 8 and 128')
+    if (passLength >=8 && passLength <= 128 && typeof passLength === 'number'){}
+    else {
+      window.alert('Try again');
+      break;
+    }
+  */
   do {
-  passLength = window.prompt('Choose a length for your password between 8 and 128');
-  } while (passLength < 8 || passLength > 128) 
+  passLength = parseInt(window.prompt('Choose a length for your password between 8 and 128'));
+  } while (passLength < 8 || passLength > 128)
+console.log(passLength)
+  if (typeof passLength !== 'number'|| isNaN(passLength)) {
+    window.alert('Try again');
+    return false
+  }
   
   //This decides what types of characters the password will include
 
@@ -77,8 +89,11 @@ do {
     if (window.confirm('Do you want to include special characters in your password?')) {
       initialPasswordString += characterTypes.special;
     }
+    if (initialPasswordString == '') {
+      window.alert('You must choose at least one character set')
+    }
   } while (initialPasswordString == '') 
- 
+ //This removes all commas
     finalPasswordString = initialPasswordString.replaceAll(',', '');
 
   //This turns the string you just got back into an array
