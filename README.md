@@ -4,4 +4,4 @@ I was tasked with creating an application that would generate a random password 
 
 [password-link](https://boogiematrix.github.io/password-generator-bcs/)
 
-![Screen Shot](assets/password-screen-shot.png)
+![Screen Shot](/assets/password-screen-shot.png)
