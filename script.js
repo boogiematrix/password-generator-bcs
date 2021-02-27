@@ -1,13 +1,3 @@
-// An object containing arrays of all possible characters for the password
-/*const characterTypes = {
-  lowerCase: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
-  'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-  upperCase: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
-  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-  number: [0,1, 2, 3, 4, 5, 6, 7, 8, 9],
-  special: ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.',
-   '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '{', '}', '~'],
-}*/
 
 //An object containing strings of all possible characters for the password
 const characterTypes = {
@@ -16,8 +6,6 @@ const characterTypes = {
   number: '0123456789',
   special: '!#$%&()*+-./:;<=>?@[]^_{}~',
 }
-
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -72,9 +60,6 @@ function generatePassword() {
     }
   } while (initialPasswordString == '') 
   
-  // This removes all commas
-    //finalPasswordString = initialPasswordString.replaceAll(',', '');
-
   // This turns the string you just got back into an array
   let finalPasswordArray = initialPasswordString.split('')
 
